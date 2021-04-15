@@ -40,8 +40,17 @@
     
     <canvas id="myChart"></canvas>
   </div>
-
+  <script>
+    if("serviceWorker" in navigator) {
+      navigator.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js").then(reg => {
+          console.log("we located the service worker file", reg);
+        });
+      });
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="db.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
